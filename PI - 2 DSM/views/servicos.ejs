@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicos</title>
+
+    <style>
+        .titulo {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 900;
+            margin-top: 15px;
+        }
+
+        .buscar-container {
+            display: flex;
+            justify-content: center;
+            margin: 15px auto;
+            width: 70%;
+            gap: 5px;
+        }
+
+        #buscar {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        #pesquisar, #btnResetar {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            color: white;
+            font-weight: bold;
+        }
+
+        #pesquisar {
+            background-color: rgb(97, 150, 230);
+        }
+
+        #btnResetar {
+            background-color: gray;
+        }
+
+        #fazerlogin, #criarconta {
+            background-color: rgb(97, 150, 230);
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .foto-lista {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #d9d9d9;
+            margin: 0 auto 10px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="titulo">GUIA PROFISSIONAL</h1>
+
+    <input type="button" value="Fazer Login" id="fazerlogin"
+       onclick="window.location.href='/login'">
+
+    <input type="button" value="Criar conta" id="criarconta"
+       onclick="window.location.href='/cadastrar'">
+
+    <div class="buscar-container">
+        <input type="text" placeholder="Busque por Profissional" id="buscar">
+        <button id="pesquisar">🔍</button>
+        <button id="btnResetar">Redefinir</button>
+    </div>
+
+    <div class="grid">
+        <% profissionais.forEach(p => { %>
+
+            <a href="/areaProfissional/<%= p.id_profissional %>" class="card">
+                <img src="/imagens/user.png" class="foto-lista">
+                <h3><%= p.nome %></h3>
+                <p><%= p.profissao %></p>
+            </a>
+
+        <% }) %>
+    </div>
+
+    <script>
+        document.getElementById("pesquisar").onclick = function () {
+            const termo = document.getElementById("buscar").value.trim();
+            if (termo !== "") {
+                window.location.href = "/servicos?buscar=" + encodeURIComponent(termo);
+            }
+        };
+
+        document.getElementById("btnResetar").onclick = function () {
+            document.getElementById("buscar").value = "";
+            window.location.href = "/servicos"; 
+        };
+    </script>
+
+</body>
+</html>

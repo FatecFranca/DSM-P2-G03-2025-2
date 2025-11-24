@@ -1,0 +1,84 @@
+#login {
+    color: rgb(0, 0, 0);
+    display: grid;
+    place-items: center;
+    margin-top: 7%;
+
+}
+
+#login input{
+    background-color: rgba(247, 247, 247, 0.842);
+    border-radius: 5%;
+    padding: 15px;
+
+}
+
+#login input[type = "submit"] {
+    background-color: rgb(97, 150, 230);
+    padding: 30px;
+    margin-top: 15px;
+}
+
+.esqueciSenha {
+    margin-top: 15px;
+    color: rgb(152, 193, 248);
+}
+
+#header {
+    background-color: rgb(255, 255, 255);
+    display: flex;          
+    gap: 40px;          
+    justify-content: center; 
+}
+
+#header input[type = "buttom"]{
+    color: red;
+
+}
+
+#cliente {
+    background-color: rgb(97, 150, 230);
+    width: 30%;
+}
+
+#profissional {
+    background-color: rgba(247, 247, 247, 0.842);
+    width: 30%;
+    
+}
+
+#profissional:hover{
+    background-color: rgba(153, 153, 153, 0.295);
+}
+
+#linha {
+    width: 980px;       
+    height: 80px;
+    display: block;       
+    margin: 0 auto;        
+}
+
+#logarCadastrar {
+    background-color: rgb(255, 255, 255);
+    display: flex;          
+    gap: 40px;          
+    justify-content: center; 
+}
+
+#logar {
+    background-color: rgb(97, 150, 230);
+    width: 5%;
+}
+
+#cadastrar {
+    width: 5%;
+}
+
+#cadastrar:hover {
+    background-color: rgba(153, 153, 153, 0.295);
+}
+
+#seta {
+    width: 40px;
+    height: 40px;
+}
